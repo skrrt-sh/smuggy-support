@@ -1,0 +1,15 @@
+title: Smuggy
+description: An Xray VPN and proxy client for your Mac's menu bar, with WireGuard and AmneziaWG built in.
+url: https://smuggy.skrrt.sh
+markdown: kramdown
+kramdown:
+  input: GFM
+  hard_wrap: false
+  auto_ids: true
+exclude:
+  - README.md
+  - AGENTS.md
+  - .github
+  - Gemfile
+  - Gemfile.lock
+  - vendor
