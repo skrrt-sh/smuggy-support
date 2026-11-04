@@ -27,7 +27,7 @@ description: Smuggy is an Xray VPN and proxy client for your Mac's menu bar, wit
     <span data-mode="bypass">No server needed: Smuggy reshapes your traffic right on your Mac.</span>
   </p>
 
-  <figure class="hero-shot" id="shot" role="tabpanel">
+  <figure class="hero-shot" id="shot" role="tabpanel" tabindex="0" aria-labelledby="tab-vpn">
     <img data-mode="vpn" src="/assets/windows/vpn.webp" alt="Smuggy's window in VPN mode: protected through Frankfurt, with download and upload speeds, ping and recent activity." width="1100" height="723">
     <img data-mode="bypass" src="/assets/windows/bypass.webp" alt="Smuggy's window in DPI Bypass mode: protected with the Balanced strategy, with speeds and connections disguised." width="1100" height="723" loading="lazy">
     <img class="peek peek-right" src="/assets/mascots/vpn.webp" alt="" width="180" height="180">
@@ -129,8 +129,10 @@ description: Smuggy is an Xray VPN and proxy client for your Mac's menu bar, wit
   (() => {
     const hero = document.querySelector(".hero");
     const tabs = [...hero.querySelectorAll('[role="tab"]')];
+    const shot = document.getElementById("shot");
     function select(tab, focus) {
       tabs.forEach((t) => { const on = t === tab; t.setAttribute("aria-selected", on); t.tabIndex = on ? 0 : -1; });
+      shot.setAttribute("aria-labelledby", tab.id);
       hero.dataset.mode = tab.dataset.mode;
       hero.dataset.tint = tab.dataset.tint;
       if (focus) tab.focus();
