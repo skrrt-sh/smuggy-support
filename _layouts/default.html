@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>{% if page.title %}{{ page.title }} · Smuggy{% else %}Smuggy · Xray VPN and proxy client for Mac{% endif %}</title>
+  <meta name="description" content="{{ page.description | default: site.description }}">
+  <meta name="color-scheme" content="dark">
+  <meta name="theme-color" content="#000a2e">
+  <link rel="canonical" href="{{ site.url }}{{ page.url | replace: 'index.html', '' }}">
+  <link rel="icon" type="image/png" href="/assets/favicon.png">
+  <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Smuggy">
+  <meta property="og:title" content="{{ page.title | default: 'Smuggy' }}">
+  <meta property="og:description" content="{{ page.description | default: site.description }}">
+  <meta property="og:image" content="{{ site.url }}/assets/og.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="preload" href="/assets/fonts/Onest.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="/assets/site.css">
+</head>
+<body class="{{ page.body_class }}">
+  <a class="skip" href="#main">Skip to content</a>
+  <header class="bar">
+    <nav class="bar-inner" aria-label="Site">
+      <a class="brand" href="/" aria-label="Smuggy home">
+        <img src="/assets/icon-256.webp" alt="" width="28" height="28">
+        <span>Smuggy</span>
+      </a>
+      <div class="bar-links">
+        <a href="/support/"{% if page.url == '/support/' %} aria-current="page"{% endif %}>Support</a>
+        <a href="/privacy/"{% if page.url == '/privacy/' %} aria-current="page"{% endif %}>Privacy</a>
+      </div>
+    </nav>
+  </header>
+
+  <main id="main">
+    {{ content }}
+  </main>
+
+  <footer class="foot">
+    <div class="foot-inner">
+      <p>© {{ 'now' | date: '%Y' }} <a href="https://skrrt.sh">Skrrt LLC</a>. Smuggy does not sell or provide VPN service.</p>
+      <p class="foot-links">
+        <a href="/support/">Support</a>
+        <a href="/privacy/">Privacy policy</a>
+        <a href="mailto:support@skrrt.sh">support@skrrt.sh</a>
+      </p>
+    </div>
+  </footer>
+</body>
+</html>
