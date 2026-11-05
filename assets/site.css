@@ -217,7 +217,7 @@ h1 {
   display: inline-flex;
   align-items: center;
   gap: 10px;
-  margin: 28px 0 0;
+  margin: 0;
   padding: 10px 18px;
   border-radius: 999px;
   background: var(--glass);
@@ -231,6 +231,34 @@ h1 {
   background: var(--mint);
   box-shadow: 0 0 10px color-mix(in oklch, var(--mint) 70%, transparent);
 }
+
+/* The App Store badge, in frost, laid out like Apple's: the logo, then a small line over the store's name. */
+.store {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 14px;
+  margin: 28px 0 0;
+}
+.store-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  height: 52px;
+  padding: 0 20px 0 16px;
+  border-radius: 14px;
+  background: var(--glass-raised);
+  color: var(--ink);
+  text-align: left;
+  text-decoration: none;
+}
+.store-badge svg { width: 24px; height: 24px; fill: currentColor; }
+.store-badge span { display: grid; line-height: 1.15; }
+.store-badge small { color: var(--ink-soft); font-size: 11px; font-weight: 500; }
+.store-badge strong { font-size: 18px; font-weight: 600; letter-spacing: -0.01em; }
+.store-badge:hover { color: var(--ink); }
+.store-badge[aria-disabled="true"] { opacity: 0.5; cursor: not-allowed; }
 
 /* Each window sits in its own glow, the app's backdrop in the colour of what it shows. */
 .hero::before {
@@ -318,9 +346,9 @@ h2 {
 
 /* The app's frost: white at 5 % with a 1 pt rim lit from the top left, the way light catches a glass plate's edge
    (SpecularRim: highlight 0.42 × strength, shade 0.04, the far corner 0.4 of the highlight). */
-.frost, .status, .segmented, .metric, .card, .prose details, .button { position: relative; }
+.frost, .status, .segmented, .metric, .card, .prose details, .button, .store-badge { position: relative; }
 .status::before, .segmented::before, .metric::before, .card::before, .prose details::before, .button::before,
-.lens::after {
+  .store-badge::before, .lens::after {
   content: "";
   position: absolute;
   inset: 0;
@@ -633,5 +661,5 @@ code {
   :root { --ink-soft: rgb(240 244 255 / 0.92); --ink-faint: rgb(240 244 255 / 0.75); }
   /* As the app does under Increase Contrast: a solid faint edge in place of the rim. */
   .status::before, .segmented::before, .metric::before, .card::before, .prose details::before, .button::before,
-  .lens::after { padding: 0; background: none; border: 1px solid var(--ink-faint); -webkit-mask: none; mask: none; }
+  .store-badge::before, .lens::after { padding: 0; background: none; border: 1px solid var(--ink-faint); -webkit-mask: none; mask: none; }
 }
